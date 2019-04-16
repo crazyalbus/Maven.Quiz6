@@ -3,6 +3,8 @@ package rocks.zipcode.io.fundamentals;
 
 import java.util.Collection;
 
+import static rocks.zipcode.io.fundamentals.BasicStringUtils.getString;
+
 /**
  * @author leon on 10/01/2019.
  */
@@ -27,7 +29,14 @@ public class StringUtils {
      * @return near-identical string whose characters at specified indices are capitalized
      */
     public static String upperCaseIndices(String string, Integer... indices) {
-        return null;
+
+        char[] stringAsArray = string.toCharArray();
+
+        for (Integer i : indices) {
+            stringAsArray[i] = Character.toUpperCase(stringAsArray[i]);
+        }
+
+        return getString(stringAsArray);
     }
 
     /**
@@ -37,7 +46,14 @@ public class StringUtils {
      * @return near-identical string with `valueToBeInserted` inserted at `index`
      */
     public static String insertAtIndex(String stringToBeManipulated, String valueToBeInserted, Integer index) {
-        return null;
+
+        StringBuilder newString = new StringBuilder();
+
+        newString.append(stringToBeManipulated.substring(0,index));
+        newString.append(valueToBeInserted);
+        newString.append(stringToBeManipulated.substring(index));
+
+        return newString.toString();
     }
 
     /**
@@ -47,6 +63,13 @@ public class StringUtils {
      * @return near-identical string with character at `index` replaced with `replacementValue`
      */
     public static String replaceAtIndex(String stringToBeManipulated, Character replacementValue, Integer index) {
-        return null;
+
+        StringBuilder newString = new StringBuilder();
+
+        newString.append(stringToBeManipulated.substring(0,index));
+        newString.append(replacementValue);
+        newString.append(stringToBeManipulated.substring(index + 1));
+
+        return newString.toString();
     }
 }
