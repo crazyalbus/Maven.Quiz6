@@ -65,14 +65,4 @@ public class CollectionUtils {
         return flatCollection;
     }
 
-//    public Stream<?> itemStream(Collection<?> collection) {
-//
-//
-//
-//        return collection.stream();
-//    }
-//
-//    public Stream<?> flatStream(Stream<Collection<?>> stream) {
-//        return stream.flatMap(this::itemStream);
-//    }
 }

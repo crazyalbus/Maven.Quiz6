@@ -1,7 +1,12 @@
 package rocks.zipcode.io.fundamentals;
 
 
+import rocks.zipcode.io.arrays.ArrayUtils;
+import rocks.zipcode.io.collections.PowerSet;
+
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import static rocks.zipcode.io.fundamentals.BasicStringUtils.getString;
 
@@ -15,12 +20,27 @@ public class StringUtils {
      */
     public static Collection<String> getAllCasings(String string) {
         // get length of string
+        Integer length = string.length();
+
         // get range of length
+        Integer[] range = ArrayUtils.getRange(0, length - 1);
+
         // get power-set of range
+        PowerSet<Integer> ps = new PowerSet<>(range);
+        Set<Set<Integer>> powerSet = ps.permute();
+
+        Collection<String> allCasings = new HashSet<>();
 
         // for every set in power-set
+        for (Set<Integer> set : powerSet) {
+            String temp = string;
+            for (Integer i : set) {
+                temp = upperCaseIndices(temp, i);
+            }
+            allCasings.add(temp);
+        }
             // uppercase indices of string using set
-        return null;
+        return allCasings;
     }
 
     /**
