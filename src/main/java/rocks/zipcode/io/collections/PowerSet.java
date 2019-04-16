@@ -25,7 +25,7 @@ public class PowerSet<TypeOfSet> {
         while (i >= 0) {
             Set<TypeOfSet> temp = new HashSet<>();
             String pattern = Integer.toBinaryString(i);
-            if(pattern.length() < Integer.toBinaryString(powerSetSize-1).length()) {
+            while(pattern.length() < Integer.toBinaryString(powerSetSize-1).length()) {
                 pattern = "0" + pattern;
             }
             for (int j = 0; j < pattern.length(); j++) {

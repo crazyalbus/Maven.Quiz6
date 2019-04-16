@@ -40,6 +40,8 @@ public class StringUtils {
             allCasings.add(temp);
         }
             // uppercase indices of string using set
+
+
         return allCasings;
     }
 
